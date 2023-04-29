@@ -1,0 +1,22 @@
+.link-active{
+    text-decoration: none;
+    color: inherit;
+    padding-left: 20px;  
+    color: #17d1ff;
+    font-weight: bold;
+}
+
+.text-link {
+    text-decoration: none;
+    color: inherit;
+    padding-left: 20px;   
+    color: grey; 
+}
+
+.text-link:hover {
+    color: #4da7bd;
+}
+
+.link-active:hover {
+    color: #4da7bd;
+}
