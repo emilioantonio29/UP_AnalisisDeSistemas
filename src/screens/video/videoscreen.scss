@@ -1,0 +1,17 @@
+.videoscreen-div{
+    width: 94vw;
+}  
+
+@media (max-width: 992px)
+{
+    .videoscreen-div{
+        width: 92vw;
+    }  
+}
+
+// @media (max-width: 992px)
+// {
+//     .videoscreen-div{
+//         width: 90vw;
+//     }  
+// }
