@@ -14,10 +14,10 @@ function App() {
     <BrowserRouter>
       <NavbarComponent/>
         <Routes>
-          <Route path="/"  element={<AdminScreen/>}/>
-          <Route path="/video"  element={<VideoScreen/>}/>
-          <Route path="/help"  element={<HelpScreen/>}/>
-          <Route path="*"  element={<NotFoundScreen/>}/>
+          <Route path="/" element={<AdminScreen/>}/>
+          <Route path="/video" element={<VideoScreen/>}/>
+          <Route path="/help" element={<HelpScreen/>}/>
+          <Route path="*" element={<NotFoundScreen/>}/>
         </Routes>
     </BrowserRouter>
   );

@@ -1,11 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
+import ModalVideo from '../components/modal-video/ModalVideo';
+import html2canvas from 'html2canvas';
+import { fabric } from 'fabric';
 
 function VideoPlayer() {
     const [videoURL, setVideoURL] = useState('');
     const [height, setHeight] = useState(0);
     const [width, setWidth] = useState(0);
     const [playing, setPlaying] = useState(false);
+    const [imgUrl, setImgUrl] = useState(null);
     const divRef = useRef(null);
+    const [modalOpen, setModalOpen] = useState(false);
 
     function handleVideoChange(event) {
         const file = event.target.files[0];
@@ -18,13 +23,50 @@ function VideoPlayer() {
         console.log('Video iniciado');
     }
 
-    function handlePause() {
+    function handlePause(event) {
+        let video = event.target;
+        let segundoActual = video.currentTime;
+        console.log("El video se pausó en el segundo " + segundoActual.toFixed());
+        console.log("typeof " + typeof(segundoActual));
+
+
         setPlaying(false);
         console.log('Video pausado');
+        handleCapture(event)
     }
 
     const handleMainPlayer = () =>{
         playing ? handlePause() : handlePause();
+    }
+
+    function handleCapture(e) {
+        html2canvas(e.target).then((canvas) => {
+            const imgData = canvas.toDataURL();
+            setImgUrl(imgData);
+            const img = new Image();
+            img.onload = () => {
+                const canvas = new fabric.Canvas('canvas');
+                const fabricImg = new fabric.Image(img);
+                canvas.setWidth(img.width);
+                canvas.setHeight(img.height);
+                canvas.setBackgroundImage(fabricImg);
+                canvas.on('mouse:down', (e) => {
+                    const circle = new fabric.Circle({
+                        radius: 10,
+                        fill: 'red',
+                        left: e.pointer.x,
+                        top: e.pointer.y,
+                        originX: 'center',
+                        originY: 'center',
+                    });
+                    canvas.add(circle);
+                    canvas.renderAll();
+                });
+            };
+            img.src = imgData;
+        });
+
+        setModalOpen(true);
     }
 
     useEffect(() => {
@@ -59,6 +101,7 @@ function VideoPlayer() {
                     onPlay={handlePlay} onPause={handlePause}>
                 </video>
             </div>
+            <ModalVideo imgUrl={imgUrl} setModalOpen={setModalOpen} modalOpen={modalOpen}/>
         </div>
     );
 }

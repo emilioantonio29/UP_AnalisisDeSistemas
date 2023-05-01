@@ -17,13 +17,13 @@ const NavbarComponent = () => {
                     <div className=" navbar-collapse" id="navbarText" >
                     <ul className="navbar-nav ">
                         <li className="nav-item">
-                            <NavLink to={`/`} className={({ isActive }) => (isActive ? 'link-active' : 'text-link')} exact activeclassname="link-active">Admin</NavLink>
+                            <NavLink to={`/`} className={({ isActive }) => (isActive ? 'link-active' : 'text-link')} activeclassname="link-active">Admin</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink to={`/video`} className={({ isActive }) => (isActive ? 'link-active' : 'text-link')} exact activeclassname="link-active">Video</NavLink>
+                            <NavLink to={`/video`} className={({ isActive }) => (isActive ? 'link-active' : 'text-link')} activeclassname="link-active">Video</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink to={`/help`} className={({ isActive }) => (isActive ? 'link-active' : 'text-link')} exact activeclassname="link-active">Help</NavLink>
+                            <NavLink to={`/help`} className={({ isActive }) => (isActive ? 'link-active' : 'text-link')} activeclassname="link-active">Help</NavLink>
                         </li>
                     </ul>
                     </div>
