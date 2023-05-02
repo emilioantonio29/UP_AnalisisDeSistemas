@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import Sheet from 'react-modal-sheet';
-import Divider from "../utils/Divider";
+import Divider from "../common/Divider";
 
 const ModalVideo = ({setModalOpen, modalOpen, imgUrl}) => {
 
@@ -20,7 +20,7 @@ const ModalVideo = ({setModalOpen, modalOpen, imgUrl}) => {
                             <button onClick={() => setModalOpen(false)} style={{width: "10%"}}>Cancelar</button>
                             <h4 style={{textAlign: "center", width: "80%"}}>Detalle del evento</h4>
                         </div>
-                        <Divider padding={"1%"}/>
+                        <Divider/>
                         <img
                             src={imgUrl}
                             alt="captura de pantalla"
