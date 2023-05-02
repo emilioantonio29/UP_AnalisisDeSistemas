@@ -1,7 +1,7 @@
 .link-active{
     text-decoration: none;
     color: inherit;
-    padding-left: 20px;  
+    //padding-left: 20px;  
     color: #17d1ff;
     font-weight: bold;
 }
@@ -9,7 +9,7 @@
 .text-link {
     text-decoration: none;
     color: inherit;
-    padding-left: 20px;   
+    //padding-left: 20px;   
     color: grey; 
 }
 
@@ -25,9 +25,37 @@
     display: flex;
 }
 
+#navbarText1{
+    width: 34%;
+}
+#navbarText2{
+    width: 33%;
+}
+#navbarText3{
+    width: 33%;
+    display: flex;
+    justify-content: end;
+}
+
+.nav-help{
+    display: none;
+}
+
 @media (max-width: 992px)
 {
     .navbar-div{
         display: block;
     }  
+    #navbarText1, #navbarText2{
+        width: 100%;
+        justify-content: center;
+        border: "1px solid red" !important
+    }
+    #navbarText3{
+        display: none;
+    }
+
+    .nav-help{
+        display:block;
+    }
 }
