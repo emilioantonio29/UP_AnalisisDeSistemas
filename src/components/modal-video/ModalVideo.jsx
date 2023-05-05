@@ -45,7 +45,7 @@ const ModalVideo = ({setModalOpen, modalOpen, imgUrl, clickTime, ejeX, ejeY}) =>
             <Sheet.Container>
                 <Sheet.Header />
                 <Sheet.Content>
-                    <div style={{padding: "2%"}}>
+                    <div style={{padding: "2%", paddingBottom: "10%"}}>
                         <div style={{width: "100%", display: "flex", flexDirection: "row"}}>
                             <button onClick={() => setModalOpen(false)} type="button" className="btn btn-primary btn-sm" style={{width: "15%"}}>Cancelar</button>
                             <h4 style={{textAlign: "center", width: "70%"}}>Detalle del evento</h4>
