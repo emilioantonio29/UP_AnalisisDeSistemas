@@ -5,7 +5,27 @@ export const UserGlobalContextMemorySpace = createContext();
 
 export const UserGlobalContext = ({children}) =>{
 
-    const [listaCategorias, setListaCategorias] = useState("");
+    const estructuraCategorias = {
+        categorias:[
+            {infraestructura: [
+                {calles: ["autopista","calle comun","montaña"]},
+                {edificios: ["grande","pequeño","base militar","casa"]},
+                {otros: ["aeropuerto"]}
+            ]},
+            {vehiculos: [
+                {aereo: ["uav","helicoptero","avion de combate","avion de rescate"]},
+                {terrestre: ["camioneta","auto","offroad"]},
+                {acuatico: ["lancha"]}
+            ]},
+            {equipo: [
+                {cortaDistancia: ["pistola","subfusil"]},
+                {largaDistancia: ["fusil","sniper","ametralladora"]},
+                {pesado: ["rpg", "c4"]}
+            ]}
+        ]
+    }
+
+    const [listaCategorias, setListaCategorias] = useState(estructuraCategorias);
 
     useEffect(()=>{
         //Mount: 

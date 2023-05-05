@@ -13,6 +13,9 @@ function VideoPlayer() {
     const [imgUrl, setImgUrl] = useState(null);
     const [modalOpen, setModalOpen] = useState(false);
     const [objectFit, setObjectFit] = useState(false);
+    const [clickTime, setClickTime] = useState("");
+    const [ejeX, setEjeX] = useState("");
+    const [ejeY, setEjeY] = useState("");
     const divRef = useRef(null);
     const videoRef = useRef(null);
 
@@ -85,9 +88,12 @@ function VideoPlayer() {
             const divBounds = e.target.getBoundingClientRect();
             const x = e.clientX - divBounds.left;
             const y = e.clientY - divBounds.top;
-            console.log(`El usuario hizo clic en (${x}, ${y}) dentro del div superpuesto`);
+            setEjeX(x);
+            setEjeY(y);
+            console.log(`El usuario hizo clic en (X${x}, Y${y})`);
             const currentTime = videoRef.current.currentTime;
-            console.log(currentTime.toFixed())
+            setClickTime(currentTime.toFixed())
+            console.log("El usuario hizo click en el segundo" + currentTime.toFixed())
             console.log("videoRef", videoRef.current)
             let base64img = await convertBase64(videoRef.current);
             let redDotImg = redDot;
@@ -165,7 +171,7 @@ function VideoPlayer() {
                     onPause={handlePause}>
                 </video>
             </div>
-            <ModalVideo imgUrl={imgUrl} setModalOpen={setModalOpen} modalOpen={modalOpen}/>
+            <ModalVideo imgUrl={imgUrl} setModalOpen={setModalOpen} modalOpen={modalOpen} clickTime={clickTime} ejeX={ejeX} ejeY={ejeY}/>
         </div>
     );
 }
