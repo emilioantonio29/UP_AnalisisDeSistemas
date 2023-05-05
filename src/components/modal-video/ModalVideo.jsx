@@ -1,8 +1,13 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import Sheet from 'react-modal-sheet';
 import Divider from "../common/Divider";
+import { UserGlobalContextMemorySpace } from "../../context/userGlobalContext";
 
 const ModalVideo = ({setModalOpen, modalOpen, imgUrl}) => {
+
+    const {categorias} = useContext(UserGlobalContextMemorySpace);
+
+    console.log("context", categorias)
 
     return (
         <>
